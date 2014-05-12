@@ -3,6 +3,13 @@ drupal-days-code-symfony-introduction
 
 The sample code used for the Introductory Symfony talk held by Alessio Barnini during the Drupal Days 2014 on 8th May in Milan
 
+What's inside
+- Form for insert Data
+- Validation Form
+- Retrieve,Write and Delete Data From DataBase
+- Ajax Call for retrieve data
+
+
 ## Usage
 First of all, clone the repo:
 
