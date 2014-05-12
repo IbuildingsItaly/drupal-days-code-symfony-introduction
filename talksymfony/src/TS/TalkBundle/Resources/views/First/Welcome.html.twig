@@ -11,10 +11,10 @@
 {% block title %}Welcome{% endblock %}
 
 {% block body %}
-    <h1>Inserisci un nuovo utente</h1>
+    <h1>Inserisci un nuovo utente - Add User</h1>
     {{ form(form,{'action':path('welcome')}) }}
 
     <hr>
-    <p><a href="{{ path('get_utenti') }}">Lista Utenti</a></p>
+    <p><a href="{{ path('get_utenti') }}">Lista Utenti - Users List</a></p>
 
 {% endblock %}

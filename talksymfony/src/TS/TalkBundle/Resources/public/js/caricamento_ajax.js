@@ -19,14 +19,14 @@ function carica_utente(btn) {
             url: Routing.generate('utenti_ajax', {'totale_utenti': $('ul#lista_utenti li').length}),
             dataType: "json",
             beforeSend: function () {
-                btn.attr('load', true); //aggiungo attributo per evitare molte chiamate
+                btn.attr('load', true); //aggiungo attributo per evitare molte chiamate / Add an Attribute to avoid multiple calls
                 btn.html('Loading...');
             },
             success: function (msg) {
                 console.dir(msg);
                 if (msg.status === "OK") {
                     $($.parseHTML(msg.template)).appendTo('ul#lista_utenti').hide().fadeIn(500).promise().done(function () {
-                        if (!msg.mostra_pulsante) { //Abbiamo caricato tutti gli utenti
+                        if (!msg.mostra_pulsante) { //Abbiamo caricato tutti gli utenti / All Elements are Loaded
                             btn.fadeOut('normal', function() {
                                 btn.remove();
                             });
@@ -34,14 +34,14 @@ function carica_utente(btn) {
                     })
                 } else {
                     console.log("KO");
-                    alert("Si è verificato un errore");
+                    alert("Si è verificato un errore / Error !");
                 }
             },
             error: function (msg) {
             },
             complete: function (msg) {
                 btn.removeAttr('load');
-                btn.html('Carica altri utenti');
+                btn.html('Load User');
             }
         });
     }

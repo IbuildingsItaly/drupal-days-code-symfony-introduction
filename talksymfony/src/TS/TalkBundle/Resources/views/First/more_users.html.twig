@@ -6,18 +6,18 @@
 {#* Web : http://www.ibuildings.it#}
 {#*/#}
 
-{#Verifico se arrivo da una chiamata Ajax oppure no#}
+{#Verifico se arrivo da una chiamata Ajax oppure no - Check if ajax Call#}
 {% if app.request.isXmlHttpRequest %}
     {% for utente in users %}
         <li><a href="{{ path('get_utente',{nome:utente.name}) }}">{{ utente.name }}</a>
             - {% if utente.cognome is not null and utente.cognome is not empty %}  {{ utente.cognome }} - {% endif %} {{ utente.email }}
-            - <a href="{{ path('cancella_utente',{name:utente.name}) }}">cancella</a>
+            - <a href="{{ path('cancella_utente',{name:utente.name}) }}">Delete</a>
         </li>
     {%endfor%}
 {% else %}
     <li><a href="{{ path('get_utente',{nome:utente.name}) }}">{{ utente.name }}</a>
         - {% if utente.cognome is not null and utente.cognome is not empty %}  {{ utente.cognome }} - {% endif %} {{ utente.email }}
-        - <a href="{{ path('cancella_utente',{name:utente.name}) }}">cancella</a>
+        - <a href="{{ path('cancella_utente',{name:utente.name}) }}">Delete</a>
     </li>
 {% endif %}
 

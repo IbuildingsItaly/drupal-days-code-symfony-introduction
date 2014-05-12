@@ -16,40 +16,40 @@
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
-    {#Riutilizzo di un twig#}
+    {#Riutilizzo di un twig - Reuse Twig #}
 
-    {#Se arrivo dalla action che vuole mostrare tutti gli utenti#}
+    {# Se arrivo dalla action che vuole mostrare tutti gli utenti - Check the route#}
     {% if app.request.attributes.get('_route') == 'get_utenti' %}
 
         {% if utenti|length == 0 %}
-            <p>Non sono presenti utenti in Database</p>
+            <p>Non sono presenti utenti in Database - The Database is Empty</p>
         {% else %}
             <p>Totale Utenti ({{ utenti|length }})</p>
 
             <div style="border: 1px solid #636363;padding:4px" class="contenitore_utenti">
                 <ul id="lista_utenti">
                     {% for utente in utenti|slice(0,3) %}
-                        {#Creo un twig separato cosi è possibile utilizzarlo anche per la paginazione#}
+                        {#Creo un twig separato cosi è possibile utilizzarlo anche per la paginazione - I create a separate twig, and i can re-use the same for paging users#}
                         {% include "@TSTalk/First/more_users.html.twig" with {'utente':utente} %}
                     {% endfor %}
                 </ul>
             </div>
             <br/>
             {% if utenti|length > 3 %}
-                <button id="more">Carica altri utenti</button>
+                <button id="more">Load User</button>
             {% else %}
                 <p style="font-size: 12px">Aggiungi almeno 4 utenti per vedere una paginazione Ajax !</p>
+                <p style="font-size: 12px">Add 4+ users for use ajax paging</p>
             {% endif %}
             <br/><br/>
         {% endif %}
 
     {% elseif app.request.attributes.get('_route') == 'get_utente' %}
-        {#Se voglio mostrare un utente specifico, includo il twig dell'utente specifico#}
         {% include 'TSTalkBundle:First:getUtente.html.twig' %}
     {% endif %}
 
 
-    <a href="{{ path('welcome') }}">Torna alla Homepage</a>
+    <a href="{{ path('welcome') }}">Homepage</a>
 
 {% endblock %}
 

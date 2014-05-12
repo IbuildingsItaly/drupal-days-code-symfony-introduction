@@ -13,6 +13,13 @@
  * - Eliminazione di un utente
  * - Caricamento di altri utenti da Database in Ajax
  *
+ * Controller :
+ * - Form for create a user
+ * - Query to show users saved on Database
+ * - Query to get a specific user
+ * - Delete a User
+ * - Load User via Ajax
+ *
  */
 namespace TS\TalkBundle\Controller;
 
@@ -31,6 +38,7 @@ class FirstController extends Controller
 {
 	/**
 	 * Creazione Form e salvataggio utente con redirect
+	 * Built Form and save User
 	 *
 	 * @Route("/", name="welcome")
 	 * @Template("TSTalkBundle:First:Welcome.html.twig")
@@ -53,6 +61,7 @@ class FirstController extends Controller
 
 	/**
 	 * Pagina di Atterraggio salvataggio andato a buon fine
+	 * Landing page for user created
 	 *
 	 * @Route("/utente_creato/{nome_utente}", name="user_success")
 	 * @Template()
@@ -66,6 +75,7 @@ class FirstController extends Controller
 
 	/**
 	 * Lettura da Database
+	 * Read From Database
 	 *
 	 * @Route("/utenti", name="get_utenti")
 	 * @Template()
@@ -81,6 +91,7 @@ class FirstController extends Controller
 
 	/**
 	 * Lettura da database
+	 * Retrieve the specific user ( Ajax Call )
 	 *
 	 * @Route("/utenti_ajax", name="utenti_ajax", options={"expose"=true})
 	 * @Template("@TSTalk/First/more_users.html.twig")
@@ -123,6 +134,7 @@ class FirstController extends Controller
 
 	/**
 	 * Lettura Specifica di un utente
+	 * Retrieve the specific user
 	 *
 	 * @Route("/dettaglio_utente/{nome}", name="get_utente")
 	 * @Template("TSTalkBundle:First:getUtenti.html.twig")
@@ -145,9 +157,17 @@ class FirstController extends Controller
 	/**
 	 * Metodo "alternativo" per effettuare le query, molto potente
 	 *
+	 *
 	 * L'annotazione @ParamConverter richiama dei convertitori, per convertire parametri della richiesta in oggetti.
 	 * Tali oggetti sono memorizzati come attributi della richiesta e quindi possono essere iniettati come parametri dei metodi del controllore
 	 * http://symfony.com/it/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
+	 *
+	 * Another Method for retrieve
+	 *
+	 * The @ParamConverter annotation calls converters to convert request parameters to objects.
+	 * These objects are stored as request attributes and so they can be injected as controller method arguments
+	 *
+	 * http://symfony.com/en/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
 	 *
 	 * @Route("/cancella_utente/{name}",name="cancella_utente")
 	 * @Template("@TSTalk/First/cancellazione_utente.html.twig")
