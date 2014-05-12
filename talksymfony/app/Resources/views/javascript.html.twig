@@ -1,0 +1,17 @@
+{# Created by Alessio Barnini#}
+{# Twitter: @barno7#}
+{# Email : alessio@ibuildings.it#}
+{# Linkedin : https://www.linkedin.com/in/alessiobarnini#}
+{# Web : http://www.ibuildings.it #}
+{# GENERAL JAVASCRIPT #}
+{% javascripts
+'@TSTalkBundle/Resources/public/js/jquery-1.11.0.min.js'
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{#Per chiamate Ajax#}
+{#https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/index.md#}
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+

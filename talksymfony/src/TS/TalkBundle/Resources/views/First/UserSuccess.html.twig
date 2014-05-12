@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Utente Creato{% endblock %}
+
+{% block body %}
+
+    <p>Ok utente creato - {{ nome_utente }}</p>
+    <a href="{{ path('welcome') }}">Torna alla Homepage</a>
+{% endblock %}

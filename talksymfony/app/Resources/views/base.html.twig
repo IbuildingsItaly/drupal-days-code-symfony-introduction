@@ -1,0 +1,20 @@
+{# Created by Alessio Barnini #}
+{# Twitter: @barno7 #}
+{# Email : alessio@ibuildings.it #}
+{# Linkedin : https://www.linkedin.com/in/alessiobarnini #}
+{# Web : http://www.ibuildings.it #}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% include "::stylesheets.html.twig" %}
+        {% include "::javascript.html.twig" %}
+        {% block body %}{% endblock %}
+    </body>
+</html>

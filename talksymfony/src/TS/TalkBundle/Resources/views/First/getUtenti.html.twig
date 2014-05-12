@@ -1,0 +1,79 @@
+{#/**#}
+{#* Created by Alessio Barnini#}
+{#* Twitter: @barno7#}
+{#* Email : alessio@ibuildings.it#}
+{#* Linkedin : https://www.linkedin.com/in/alessiobarnini#}
+{#* Web : http://www.ibuildings.it#}
+{#*/#}
+{% extends "::base.html.twig" %}
+
+{% block title %}Lista Utenti{% endblock %}
+
+{% block body %}
+
+    {% javascripts
+    'bundles/tstalk/js/caricamento_ajax.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {#Riutilizzo di un twig#}
+
+    {#Se arrivo dalla action che vuole mostrare tutti gli utenti#}
+    {% if app.request.attributes.get('_route') == 'get_utenti' %}
+
+        {% if utenti|length == 0 %}
+            <p>Non sono presenti utenti in Database</p>
+        {% else %}
+            <p>Totale Utenti ({{ utenti|length }})</p>
+
+            <div style="border: 1px solid #636363;padding:4px" class="contenitore_utenti">
+                <ul id="lista_utenti">
+                    {% for utente in utenti|slice(0,3) %}
+                        {#Creo un twig separato cosi è possibile utilizzarlo anche per la paginazione#}
+                        {% include "@TSTalk/First/more_users.html.twig" with {'utente':utente} %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <br/>
+            {% if utenti|length > 3 %}
+                <button id="more">Carica altri utenti</button>
+            {% else %}
+                <p style="font-size: 12px">Aggiungi almeno 4 utenti per vedere una paginazione Ajax !</p>
+            {% endif %}
+            <br/><br/>
+        {% endif %}
+
+    {% elseif app.request.attributes.get('_route') == 'get_utente' %}
+        {#Se voglio mostrare un utente specifico, includo il twig dell'utente specifico#}
+        {% include 'TSTalkBundle:First:getUtente.html.twig' %}
+    {% endif %}
+
+
+    <a href="{{ path('welcome') }}">Torna alla Homepage</a>
+
+{% endblock %}
+
+
+
+
+
+    {#Metodi utili per il Debug nel Twig#}
+
+    {#<p>{{ app.request.getSchemeAndHttpHost() }}</p>#}
+
+    {#{% if app.environment == "dev" %}#}
+        {#<p>{{ dump(utenti) }}</p>#}
+    {#{% endif %}#}
+
+
+    {#{% if app.request.isXmlHttpRequest %}#}
+        {#AJAX#}
+    {#{% else %}#}
+        {#NO AJAX#}
+    {#{% endif %}#}
+
+    {#{% set data_oggi = "now"|date("d/m/Y") %}#}
+    {#<h4>{{ data_oggi }}</h4>#}
+    {#<p>{{ "now"|date("F jS \\a\\t g:ia","Europe/Rome") }}</p>#}
+    {#<p>{{ "now"|date("F jS \\a\\t g:ia","Europe/London") }}</p>#}
+

@@ -1,0 +1,15 @@
+#  Created by Alessio Barnini
+#  Twitter: @barno7
+#  Email : alessio@ibuildings.it
+#  Linkedin : https://www.linkedin.com/in/alessiobarnini
+#  Web : http://www.ibuildings.it
+#
+
+ts_talk:
+    resource: "@TSTalkBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#Extra bundle https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/index.md
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
