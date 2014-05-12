@@ -1,4 +1,4 @@
-drupal-days-code-symfonfy-introduction
+drupal-days-code-symfony-introduction
 ======================================
 
 The sample code used for the Introductory Symfony talk held by Alessio Barnini during the Drupal Days 2014 on 8th May in Milan
@@ -7,11 +7,11 @@ The sample code used for the Introductory Symfony talk held by Alessio Barnini d
 First of all, clone the repo:
 
 ```bash
-$ git clone https://github.com/IbuildingsItaly/drupal-days-code-symfonfy-introduction
+$ git clone https://github.com/IbuildingsItaly/drupal-days-code-symfony-introduction
 ```
 
 ```bash
-$ cd drupal-days-code-symfonfy-introduction/talksymfony
+$ cd drupal-days-code-symfony-introduction/talksymfony
 $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar update
 $ php app/console doctrine:database:create
