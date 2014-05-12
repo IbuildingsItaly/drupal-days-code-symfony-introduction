@@ -17,4 +17,14 @@ $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar install
 $ php app/console doctrine:database:create
 $ php app/console doctrine:schema:update --force
+```
 
+Now you can connect to  
+
+```http://localhost/path/to/symfony/app/web/config.php```
+
+If you get any warnings or recommendations, fix them before moving on.
+
+After That
+
+```http://localhost/path/to/symfony/app_dev.php```
